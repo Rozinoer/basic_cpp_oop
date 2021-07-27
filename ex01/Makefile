@@ -49,7 +49,6 @@ norm:
 	norminette $(SRC) includes/$(HEADER)
 
 git:
-	cd "/Users/evgenii/Desktop/basic_cpp_oop"
 	git add *
 	git commit -m "add"
 	git push
