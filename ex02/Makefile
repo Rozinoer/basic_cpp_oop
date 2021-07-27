@@ -1,24 +1,26 @@
-NAME = megaphone
+NAME = BankApp
 
 CC = clang++ -g
 
-CFLAGS = -Wall -Wextra -Werror 
+HEADER = Account.hpp
 
-SRC = megaphone.cpp
+CFLAGS = -Wall -Wextra -Werror -I $(HEADER)
+
+SRC = test.cpp \
+		Account.cpp \
 
 SRCS = $(SRC) 
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(HEADER)
 	@echo "\n"
-	@echo "\033[0;32mCompiling megaphone..."
+	@echo "\033[0;32mCompiling BankApp..."
 	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 	@echo "\n\033[0mDone !"
 
 clean:
 	@echo "\nRemoving binaries..."
-	@rm -f $(OBJ)
 	@echo "\033[0m"
 
 fclean:
