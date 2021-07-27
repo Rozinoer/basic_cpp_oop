@@ -1,28 +1,29 @@
-NAME = phonebook
+NAME = phoneBook
 
 CC = clang++ -g
 
-HEADER = PhoneBook.hpp
+HEADER = PhoneBook.hpp \
+		Contact.hpp \
 
-CFLAGS = -Wall -Wextra -Werror -I $(HEADER)
+CFLAGS = -Wall -Wextra -Werror
 
-SRC = PhoneBook.cpp
+SRC = main.cpp \
+		PhoneBook.cpp \
+		Contact.cpp \
 
 SRCS = $(SRC) 
 
-OBJ = $(SRCS:.cpp=.o)
-
 all: $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
+$(NAME): $(HEADER)
 	@echo "\n"
 	@echo "\033[0;32mCompiling PhoneBook..."
-	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ)
+	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 	@echo "\n\033[0mDone !"
 
-%.o: %.cpp
-	@printf "\033[0;33mGenerating PhoneBook objects... %-33.33s\r" $@
-	@${CC} -g ${CFLAGS} -c $< -o $@
+# %.o: %.cpp
+# 	@printf "\033[0;33mGenerating PhoneBook objects... %-33.33s\r" $@
+# 	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
 	@echo "\nRemoving binaries..."
@@ -48,6 +49,7 @@ norm:
 	norminette $(SRC) includes/$(HEADER)
 
 git:
+	cd "/Users/evgenii/Desktop/basic_cpp_oop"
 	git add *
 	git commit -m "add"
 	git push
