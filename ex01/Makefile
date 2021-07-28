@@ -1,6 +1,6 @@
 NAME = phoneBook
 
-CC = clang++ -g
+CC = clang++ -g -std=c++98
 
 HEADER = PhoneBook.hpp \
 		Contact.hpp \

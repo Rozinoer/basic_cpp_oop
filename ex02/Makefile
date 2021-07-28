@@ -1,19 +1,21 @@
 NAME = BankApp
 
-CC = clang++ -g
+CC = clang++ -g -std=c++98
 
 HEADER = Account.hpp
 
-CFLAGS = -Wall -Wextra -Werror -I $(HEADER)
+# CFLAGS = -Wall -Wextra -Werror
 
-SRC = test.cpp \
+CFLAGS =
+
+SRC = main.cpp \
 		Account.cpp \
 
 SRCS = $(SRC) 
 
 all: $(NAME)
 
-$(NAME): $(HEADER)
+$(NAME): $(HEADER) $(SRCS)
 	@echo "\n"
 	@echo "\033[0;32mCompiling BankApp..."
 	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)

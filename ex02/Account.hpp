@@ -30,17 +30,17 @@ public:
 
 private:
 
-	static int	_nbAccounts;
-	static int	_totalAmount;
-	static int	_totalNbDeposits;
-	static int	_totalNbWithdrawals;
+	static int	_nbAccounts; // кол - во аккаунтов
+	static int	_totalAmount; // сумма средст на ВСЕХ аккаунтах
+	static int	_totalNbDeposits; // общие кол - во операций по внесению средств
+	static int	_totalNbWithdrawals; //общая сумма снятых средств
 
 	static void	_displayTimestamp( void );
 
-	int				_accountIndex;
-	int				_amount;
-	int				_nbDeposits;
-	int				_nbWithdrawals;
+	int				_accountIndex; // индекс
+	int				_amount; // сумма на счете
+	int				_nbDeposits; // кол - во операций по внесению
+	int				_nbWithdrawals; // кол - во операций по снятию
 
 	Account( void );
 
