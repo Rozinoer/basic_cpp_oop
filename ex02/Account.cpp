@@ -64,7 +64,9 @@ int	Account::getNbWithdrawals( void )
 void	Account::makeDeposit( int deposit )
 {
     Account::_nbDeposits++;
+    _totalNbDeposits++;
     Account::_amount += deposit;
+    _totalAmount += deposit;
     _displayTimestamp();
     std::cout << "index:" << Account::_accountIndex << ";p_amount:" << Account::_amount
     << ";deposit:" << deposit << ";amount:" << Account::_amount
@@ -76,6 +78,8 @@ bool	Account::makeWithdrawal( int withdrawal )
     _displayTimestamp();
     if (Account::_amount - withdrawal >= 0)
     {
+        _totalNbWithdrawals++;
+        _totalAmount -= withdrawal;
         Account::_nbWithdrawals++;
         Account::_amount -= withdrawal;
         std::cout << "index:" << Account::_accountIndex << ";p_amount:" << Account::_amount
