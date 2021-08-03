@@ -4,10 +4,11 @@ CC = clang++ -g -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = HumanA.hpp Weapon.hpp
+HEADER = HumanA.hpp HumanB.hpp Weapon.hpp
 
 SRC = main.cpp \
 	HumanA.cpp \
+	HumanB.cpp \
 	Weapon.cpp \
 
 SRCS = $(SRC) 

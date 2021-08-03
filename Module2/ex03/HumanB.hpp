@@ -1,18 +1,16 @@
-#include <iostream>
+#pragma once
+
+#include "Weapon.hpp"
 
 class HumanB
 {
 private:
-    /* data */
+    std::string name;
+    Weapon wpn;
 public:
-    HumanB(/* args */);
+    HumanB(std::string name, Weapon wpn);
+    HumanB(std::string name);
+    void attack();
+    void setWeapon(Weapon wpn);
     ~HumanB();
 };
-
-HumanB::HumanB(/* args */)
-{
-}
-
-HumanB::~HumanB()
-{
-}

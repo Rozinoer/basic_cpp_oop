@@ -6,7 +6,7 @@ class Weapon
 {
 private:
     std::string type;
-    std::string &typeRef;
+    std::string *typePtr;
 public:
     Weapon(std::string type);
     Weapon();
