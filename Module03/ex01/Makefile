@@ -1,33 +1,27 @@
-NAME = phoneBook
+NAME = clapTrap
 
 CC = clang++ -g -std=c++98
 
-HEADER = PhoneBook.hpp \
-		Contact.hpp \
-
 CFLAGS = -Wall -Wextra -Werror
 
+HEADER = ClapTrap.hpp ScavTrap.hpp
+
 SRC = main.cpp \
-		PhoneBook.cpp \
-		Contact.cpp \
+		ClapTrap.cpp \
+		ScavTrap.cpp \
 
 SRCS = $(SRC) 
 
 all: $(NAME)
 
-$(NAME): $(HEADER) $(SRCS)
+$(NAME): $(SRCS) $(HEADER)
 	@echo "\n"
-	@echo "\033[0;32mCompiling PhoneBook..."
+	@echo "\033[0;32mCompiling $(NAME)..."
 	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 	@echo "\n\033[0mDone !"
 
-# %.o: %.cpp
-# 	@printf "\033[0;33mGenerating PhoneBook objects... %-33.33s\r" $@
-# 	@${CC} ${CFLAGS} -c $< -o $@
-
 clean:
 	@echo "\nRemoving binaries..."
-	@rm -f $(OBJ)
 	@echo "\033[0m"
 
 fclean:
@@ -36,7 +30,6 @@ fclean:
 	@echo "\nDeleting executable..."
 	@rm -f $(NAME)
 	@echo "\nDeleting trash..."
-	@rm -f *.txt
 	@rm -f *.out
 	@echo "\033[0m"
 

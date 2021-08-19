@@ -122,6 +122,8 @@ static int searchContact(PhoneBook *book)
             std::cout << "Last name:\t" << book->_list[index].getParam(2) << std::endl;
             std::cout << "Nickname:\t" << book->_list[index].getParam(3) << std::endl;
         }
+        else
+            continue;
 
     }
     return (0);
