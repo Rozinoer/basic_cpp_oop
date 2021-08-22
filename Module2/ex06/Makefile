@@ -7,7 +7,7 @@ CFLAGS = -Wall -Wextra -Werror
 HEADER = Karen.hpp
 
 SRC = main.cpp \
-		KAren.cpp \
+		Karen.cpp \
 
 SRCS = $(SRC) 
 
