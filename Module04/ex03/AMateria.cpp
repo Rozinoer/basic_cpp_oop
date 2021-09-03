@@ -2,7 +2,7 @@
 
 AMateria::AMateria(/* args */)
 {
-    std::cout << "[AMateria]Default constructor called" << std::endl;
+    std::cout << "[AMateria]\tDefault constructor called" << std::endl;
 }
 
 AMateria::~AMateria()
@@ -13,24 +13,24 @@ AMateria::~AMateria()
 void AMateria::use(ICharacter& target)
 {
     target.getName();
-    std::cout << "AMateria use()" << std::endl;
+    std::cout << "[AMateria]\tUsing.." << std::endl;
 }
 
 AMateria::AMateria(std::string const & type)
 {
-    std::cout << "[AMateria]Type constructor called" << std::endl;
+    std::cout << "[AMateria]\tType constructor called" << std::endl;
     this->type = type;
 }
 
 AMateria::AMateria(AMateria const &other)
 {
-    std::cout << "Copy constructor" << std::endl;
+    std::cout << "[AMateria]\tCopy constructor" << std::endl;
     *this = other;
 }
  
 AMateria &AMateria::operator=(const AMateria &other)
 {
-    std::cout << "Assignation operator called" << std::endl;
+    std::cout << "[AMateria]\tAssignation operator called" << std::endl;
     if (this != &other)
     {
 

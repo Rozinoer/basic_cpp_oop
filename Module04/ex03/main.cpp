@@ -5,7 +5,10 @@
 int main( void )
 {
     IMateriaSource *src = new MateriaSource();
-    AMateria *cure = new Cure();
-    src->learnMateria(cure);
+    
+    src->learnMateria(new Cure());
+    AMateria *mt;
+    mt = src->createMateria("cure");
+    std::cout << mt->getType() << std::endl;
     return 0;
 }

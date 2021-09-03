@@ -7,6 +7,8 @@
 
 class IMateriaSource
 {
+protected:
+       // AMateria *_spells[4];
 public:
        virtual ~IMateriaSource() {};
        virtual void learnMateria(AMateria *m) = 0;

@@ -10,7 +10,7 @@
 class MateriaSource : public IMateriaSource
 {
 private:
-    /* data */
+    AMateria *_spells[4];
 public:
     MateriaSource(/* args */);
     ~MateriaSource();
