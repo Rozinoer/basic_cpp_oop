@@ -1,5 +1,24 @@
 #include "ClapTrap.hpp"
 
+ClapTrap::ClapTrap(ClapTrap const &other)
+{
+    std::cout << "Copy constructor" << std::endl;
+    *this = other;
+}
+ 
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+    std::cout << "Assignation operator called" << std::endl;
+    if (this != &other)
+    {
+        this->_Name = other._Name;
+        this->_Hitpoints = other._Hitpoints;
+        this->_attackDamage = other._attackDamage;
+        this->_energyPoints = other._energyPoints;
+    }
+    return *(this);
+}
+
 void ClapTrap::attack(std::string const & target)
 {
     std::cout << "ClapTrap " + this->_Name + " attack " + target
@@ -21,7 +40,7 @@ void ClapTrap::beRepaired(unsigned int amount)
 
 ClapTrap::ClapTrap(std::string Name)
 {
-    std::cout << "String constructor called" << std::endl;
+    std::cout << "\tString constructor called" << std::endl;
     this->_Name = Name;
     this->_Hitpoints = 10;
     this->_energyPoints = 10;
@@ -39,5 +58,5 @@ ClapTrap::ClapTrap()
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Default destructor called" << std::endl;
+    std::cout << "\tDefault destructor called" << std::endl;
 }

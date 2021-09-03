@@ -1,4 +1,4 @@
-#pragma once
+
 
 #include <iostream>
 
@@ -12,6 +12,8 @@ private:
 public:
     ClapTrap(std::string Name);
     ClapTrap();
+    ClapTrap(const ClapTrap &other);
+    ClapTrap &operator = (const ClapTrap &other);
     ~ClapTrap();
     void attack(std::string const & target);
     void takeDamage(unsigned int amount);
