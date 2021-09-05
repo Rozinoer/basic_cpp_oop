@@ -10,7 +10,7 @@ SRCS = $(SRC)
 
 all: $(NAME)
 
-$(NAME):
+$(NAME): $(SRCS)
 	@echo "\n"
 	@echo "\033[0;32mCompiling megaphone..."
 	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)

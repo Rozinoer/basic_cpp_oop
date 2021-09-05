@@ -11,19 +11,15 @@ SRC = main.cpp \
 		PhoneBook.cpp \
 		Contact.cpp \
 
-SRCS = $(SRC) 
+SRCS = $(SRC)
 
 all: $(NAME)
 
-$(NAME): $(HEADER) $(SRCS)
+$(NAME): $(SRCS) $(HEADER)
 	@echo "\n"
 	@echo "\033[0;32mCompiling PhoneBook..."
 	@$(CC) $(CFLAGS) $(SRCS) -o $(NAME)
 	@echo "\n\033[0mDone !"
-
-# %.o: %.cpp
-# 	@printf "\033[0;33mGenerating PhoneBook objects... %-33.33s\r" $@
-# 	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
 	@echo "\nRemoving binaries..."

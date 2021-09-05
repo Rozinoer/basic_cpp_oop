@@ -9,6 +9,7 @@ CFLAGS = -Wall -Wextra -Werror
 SRC = main.cpp \
 		Zombie.cpp \
 		newZombie.cpp \
+		randomChump.cpp \
 
 SRCS = $(SRC) 
 

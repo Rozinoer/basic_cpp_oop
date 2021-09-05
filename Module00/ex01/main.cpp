@@ -105,26 +105,32 @@ static int tail()
 
 static int searchContact(PhoneBook *book)
 {
-    int index;
 
     header();
     body(book);
     tail();
+    std::string cin_str;
+    int cin_index;
+    int index = book->_list[0].getNbContact();
+
     while (1)
     {
-        std::cout << "Choose contact for view or write \'-1\' to exit" << std::endl;
-        std::cin >> index;
-        if (index == -1)
-            break ;
-        else if (book->_list[0].getNbContact() > index)
+        std::cout << "\033[0mEnter index contact or '-1' to exit \"SEARCH\": ";
+        std::cin >> cin_str;
+        if (cin_str == "-1")
+            break;
+        if (isdigit(cin_str[0]) && atoi(&cin_str[0]) >= 0)
+            cin_index = atoi(&cin_str[0]);
+        else
+            cin_index = 10;
+        if (cin_index < index)
         {
-            std::cout << "First name:\t" << book->_list[index].getParam(1) << std::endl;
-            std::cout << "Last name:\t" << book->_list[index].getParam(2) << std::endl;
-            std::cout << "Nickname:\t" << book->_list[index].getParam(3) << std::endl;
+            std::cout  << book->_list[cin_index].getParam(1) << std::endl;
+            std::cout << book->_list[cin_index].getParam(2) << std::endl;
+            std::cout << book->_list[cin_index].getParam(3) << std::endl;
         }
         else
-            continue;
-
+            std::cout << "\n\033[31mThis index was not exist. Correct your input.\n\033[0m" << std::endl;
     }
     return (0);
 }
@@ -147,7 +153,6 @@ int main()
     std::string cmd;
     PhoneBook pb = PhoneBook();
 
-    std::cout << "Good" << std::endl;
     while (1)
     {
         std::cout << "What do U want to do?" << std::endl;
