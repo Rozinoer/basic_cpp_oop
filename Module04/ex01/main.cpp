@@ -6,13 +6,13 @@
 
 void deepTest()
 {
-    Animal *wolf =  new Dog("I want to forest", "wolf");
-    Animal *dog =  new Dog("I want to home", "dog");
-    wolf->showIdeas();
-    dog->showIdeas();
+    Dog wolf("I want to forest yep", "wolf");
+    Dog dog("I want to home", "dog");
+    Dog b("qwe", "b");
+    Dog a("abc", "a");
+    a.makeSound();
+    b.makeSound();
     wolf = dog;
-    delete dog;
-    wolf->showIdeas();
 }
 
 int main ( void )
@@ -30,6 +30,7 @@ int main ( void )
         animal[i]->makeSound();
     }
 
-    // deepTest();
+    deepTest();
+    sleep(1000);
     return (0);
 }
