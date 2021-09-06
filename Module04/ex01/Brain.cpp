@@ -6,6 +6,12 @@ Brain::Brain(/* args */)
         this->_ideas[i] = "some idea";
 }
 
+Brain::Brain(std::string idea)
+{
+    for( int i = 0; i < 100; i++)
+        this->_ideas[i] = idea;
+}
+
 Brain::~Brain()
 {
 }
@@ -21,7 +27,7 @@ Brain &Brain::operator=(const Brain &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        for (int i = 0; i < this->_ideas->size(); i++)
+        for (size_t i = 0; i < this->_ideas->size(); i++)
             this->_ideas[i] = other._ideas[i];
     }
     return *(this);

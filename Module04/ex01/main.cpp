@@ -4,6 +4,17 @@
 
 #include <unistd.h>
 
+void deepTest()
+{
+    Animal *wolf =  new Dog("I want to forest", "wolf");
+    Animal *dog =  new Dog("I want to home", "dog");
+    wolf->showIdeas();
+    dog->showIdeas();
+    wolf = dog;
+    delete dog;
+    wolf->showIdeas();
+}
+
 int main ( void )
 {
     Animal* animal[4];
@@ -18,7 +29,7 @@ int main ( void )
     {
         animal[i]->makeSound();
     }
-    sleep(100);
 
+    // deepTest();
     return (0);
 }

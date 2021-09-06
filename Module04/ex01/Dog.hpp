@@ -8,6 +8,7 @@ private:
 
 public:
     void makeSound();
+    Dog(std::string idea, std::string type);
     Dog(/* args */);
     ~Dog();
     Dog(const Dog &other);
