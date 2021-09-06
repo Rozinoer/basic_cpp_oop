@@ -31,7 +31,8 @@ Animal &Animal::operator=(const Animal &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        this->brain = other.brain;
+        for (int i = 0; i < this->brain->_ideas->size(); i++)
+            this->brain->_ideas[i] = other.brain->_ideas[i];
         this->type = other.type;
     }
     return *(this);
