@@ -1,5 +1,10 @@
 #include "Cure.hpp"
 
+void Cure::message(std::string name) const
+{
+    std::cout << "* heals " + name + " wounds *" << std::endl;
+}
+
 AMateria* Cure::clone() const
 {
     std::cout << "[Cure]\tClone" << std::endl;
@@ -8,7 +13,7 @@ AMateria* Cure::clone() const
 
 void Cure::use(ICharacter& target)
 {
-    target.getName();
+    Cure::message(target.getName());
 }
 
 Cure::Cure(/* args */)

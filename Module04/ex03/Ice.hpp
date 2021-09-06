@@ -14,6 +14,7 @@ public:
     Ice(/* args */);
     ~Ice();
 
+    void message(std::string name) const;
     AMateria* clone() const;
     void use(ICharacter& target);
 

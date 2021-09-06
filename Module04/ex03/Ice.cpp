@@ -2,16 +2,24 @@
 
 AMateria* Ice::clone() const
 {
-    return 0;
+    std::cout << "[Ice]\tClone" << std::endl;
+    return new Ice();
 }
 
 void Ice::use(ICharacter& target)
 {
-    target.getName();
+    Ice::message(target.getName());
+}
+
+void Ice::message(std::string name) const
+{
+    std::cout << "* shoots an ice bolt at " + name + " *"<< std::endl;
 }
 
 Ice::Ice(/* args */)
 {
+    std::cout << "[Ice]\tDefault constructor" << std::endl;
+    this->type = "ice";
 }
 
 Ice::~Ice()

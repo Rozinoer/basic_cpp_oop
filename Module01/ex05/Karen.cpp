@@ -31,7 +31,7 @@ void Karen::complain(std::string level)
         "ERROR"
     };
 
-    void (Karen::*f[4])(void) = 
+    void (Karen::*f[4])( void ) = 
     {
         &Karen::debug,
         &Karen::info,

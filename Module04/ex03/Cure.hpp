@@ -13,7 +13,8 @@ private:
 public:
     Cure(/* args */);
     ~Cure();
-    
+
+    void message(std::string name) const;
     AMateria* clone() const;
     void use(ICharacter& target);
 
