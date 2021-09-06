@@ -27,7 +27,8 @@ Dog &Dog::operator=(const Dog &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-
+        for (int i = 0; i < this->brain->_ideas->size(); i++)
+            this->brain->_ideas[i] = other.brain->_ideas[i];
     }
     return *(this);
 }

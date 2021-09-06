@@ -29,7 +29,11 @@ DiamondTrap &DiamondTrap::operator=(const DiamondTrap &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-
+        this->_attackDamage = other._attackDamage;
+        this->_energyPoints = other._energyPoints;
+        this->_Hitpoints = other._Hitpoints;
+        this->_Name = other._Name;
+        this->_name = other._name;
     }
     return *(this);
 }

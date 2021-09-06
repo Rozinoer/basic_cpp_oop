@@ -4,11 +4,11 @@
 int strReplace( std::string filename, std::string line, std::string s1, std::string s2)
 {
     std::ofstream out;
-
+    std::size_t ind;
+    
     out.open(filename, std::ios::app);
     if (!(out.is_open()))
         return (1);
-    std::size_t ind;
     while ((ind = line.find(s1)) != std::string::npos)
     {
         line.erase(ind, s1.size());
