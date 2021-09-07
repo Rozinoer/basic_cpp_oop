@@ -6,13 +6,19 @@
 
 void deepTest()
 {
-    Dog wolf("I want to forest yep", "wolf");
-    Dog dog("I want to home", "dog");
-    Dog b("qwe", "b");
-    Dog a("abc", "a");
-    a.makeSound();
-    b.makeSound();
+    // Dog wolf("I want to forest yep", "wolf");
+    // Dog dog("I want to home", "dog");
+    // Dog b("qwe", "b");
+    // Dog a("abc", "a");
+    // a.makeSound();
+    // b.makeSound();
+    // wolf = dog;
+    Dog *wolf = new Dog("q", "wolf");
+    Dog *dog = new Dog("q", "dog");
     wolf = dog;
+    // delete dog;
+    delete wolf;
+    delete dog;
 }
 
 int main ( void )

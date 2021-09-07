@@ -37,7 +37,7 @@ Ice &Ice::operator=(const Ice &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        
+        this->type = other.type;
     }
     return *(this);
 }

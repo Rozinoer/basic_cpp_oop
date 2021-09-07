@@ -37,7 +37,7 @@ Cure &Cure::operator=(const Cure &other)
     std::cout << "[Cure]\tAssignation operator called" << std::endl;
     if (this != &other)
     {
-
+        this->type = other.type;
     }
     return *(this);
 }

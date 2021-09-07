@@ -13,7 +13,7 @@ Dog::Dog(std::string idea, std::string type) : Animal(type)
 Dog::~Dog()
 {
     delete this->brain;
-    std::cout << "Dog distructor called" << std::endl;
+    std::cout << "Dog [" + this->type + "] distructor called" << std::endl;
 }
 
 void Dog::makeSound()

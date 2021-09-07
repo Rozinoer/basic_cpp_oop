@@ -15,7 +15,7 @@ private:
 public:
     AMateria(/* args */);
     AMateria(std::string const & type);
-    ~AMateria();
+    virtual ~AMateria();
 
     std::string const & getType() const;
 

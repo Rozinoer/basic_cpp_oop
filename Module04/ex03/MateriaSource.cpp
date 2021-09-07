@@ -25,7 +25,8 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &other)
     std::cout << "[MateriaSource]\tAssignation operator called" << std::endl;
     if (this != &other)
     {
-
+        for (int i =0; i < 4; i++)
+            this->_spells[i] = other._spells[i];
     }
     return *(this);
 }

@@ -29,7 +29,9 @@ Character &Character::operator=(const Character &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-
+        this->_name = other._name;
+        for (int i = 0; i < 4; i++)
+            this->_spells[i] = other._spells[i];
     }
     return *(this);
 }
