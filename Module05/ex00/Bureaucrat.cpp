@@ -5,10 +5,9 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 {
 }
 
-Bureaucrat::Bureaucrat() : _name(NULL), _grade(-1)
+Bureaucrat::Bureaucrat() : _name("def"), _grade(-1)
 {
-    if (this->_grade == -1)
-        throw Exception("No NAME and GRADE");
+    throw Exception("No NAME and GRADE");
 }
 
 Bureaucrat::~Bureaucrat()
