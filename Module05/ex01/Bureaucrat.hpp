@@ -15,6 +15,8 @@ public:
     Bureaucrat( void );
     ~Bureaucrat();
 
+    void signForm(std::string name, int isSigned);
+
     void incrementGrade( void );
     void decrementGrade( void );
 

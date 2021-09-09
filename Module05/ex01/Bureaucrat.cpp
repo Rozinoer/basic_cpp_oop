@@ -54,6 +54,14 @@ void Bureaucrat::_GradeTooLowException( void )
     throw Exception("GradeTooLowException");
 }
 
+void Bureaucrat::signForm(std::string name, int isSigned)
+{
+    if (isSigned)
+        std::cout << this->_name + " signs " + name << std::endl;
+    else
+        std::cout << this->_name + " cannot signs " + name + " becouse form is already signed" << std::endl;
+}
+
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
 {
     os << bureaucrat.getName() + ", bureaucrat grade " << bureaucrat.getGrade();
