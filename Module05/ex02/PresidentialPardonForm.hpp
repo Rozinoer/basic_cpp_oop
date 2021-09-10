@@ -10,4 +10,7 @@ public:
     PresidentialPardonForm(/* args */);
     PresidentialPardonForm(int gradeRequired, int gradeExecute);
     ~PresidentialPardonForm();
+
+    PresidentialPardonForm(const PresidentialPardonForm &other);
+    PresidentialPardonForm &operator = (const PresidentialPardonForm &other);
 };

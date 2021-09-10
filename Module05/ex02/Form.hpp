@@ -9,7 +9,7 @@ private:
     static void _GradeTooHighException( void );
     static void _GradeTooLowException( void );
 protected:
-    const std::string _name;
+    std::string _name;
     int _gradeRequired;
     int _gradeExecute;
     bool _isSigned;

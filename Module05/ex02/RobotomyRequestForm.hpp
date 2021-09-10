@@ -7,6 +7,9 @@ class RobotomyRequestForm : public Form
 private:
     /* data */
 public:
-    RobotomyRequestForm(/* args */);
+    RobotomyRequestForm(int gradeRequired, int gradeExecute);
     ~RobotomyRequestForm();
+
+    RobotomyRequestForm(const RobotomyRequestForm &other);
+    RobotomyRequestForm &operator = (const RobotomyRequestForm &other);
 };
