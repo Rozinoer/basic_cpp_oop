@@ -1,6 +1,9 @@
 #pragma once
 
 #include <iostream>
+#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat
 {
@@ -15,6 +18,7 @@ public:
     Bureaucrat( void );
     ~Bureaucrat();
 
+    void executeForm(Form const &form);
     void signForm(std::string name, int isSigned);
 
     void incrementGrade( void );

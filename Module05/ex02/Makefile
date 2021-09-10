@@ -3,11 +3,14 @@ CC = clang++ -g -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = Bureaucrat.hpp Exception.hpp Form.hpp
+HEADER = Bureaucrat.hpp Exception.hpp Form.hpp PresidentialPardonForm.hpp RobotomyRequestForm.hpp ShrubberyCreationForm.hpp
 
 SRC = main.cpp \
 		Bureaucrat.cpp \
 		Exception.cpp \
+		PresidentialPardonForm.cpp \
+		RobotomyRequestForm.cpp \
+		ShrubberyCreationForm.cpp \
 		Form.cpp \
 		
 

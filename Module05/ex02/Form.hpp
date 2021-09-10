@@ -1,14 +1,17 @@
 #pragma once
 #include <iostream>
-#include "Bureaucrat.hpp"
 #include "Exception.hpp"
+#include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form
 {
 private:
+    
+protected:
     static void _GradeTooHighException( void );
     static void _GradeTooLowException( void );
-protected:
     std::string _name;
     int _gradeRequired;
     int _gradeExecute;
@@ -17,6 +20,7 @@ public:
     Form(/* args */);
     Form(std::string name, int gradeReq, int gradeExe);
     virtual ~Form();
+    void virtual execute(Bureaucrat const &executor) const = 0;
     std::string getName( void ) const;
     int getGradeRequired( void ) const;
     int getGradeExecute( void ) const;

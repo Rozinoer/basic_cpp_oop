@@ -1,18 +1,19 @@
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
-#include "Exception.hpp"
+// #include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
 
 int main ( void )
 {
-    Bureaucrat tom("Tom", 1);
-    Bureaucrat ivan("Ivan", 5);
-    Form form("Intra", 4, 4);
     try
     {
-        form.beSigned(tom);
-        form.beSigned(ivan);
+    Bureaucrat jack("Jack", 4);
+    PresidentialPardonForm form("Tom");
+    // Bureaucrat jack("Jack", 4);
+    form.execute(jack);
     }
-    catch(Exception& e)
+    catch (Exception &e)
     {
         e.error();
     }

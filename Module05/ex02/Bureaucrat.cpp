@@ -62,6 +62,14 @@ void Bureaucrat::signForm(std::string name, int isSigned)
         std::cout << this->_name + " cannot signs " + name + " becouse form is already signed" << std::endl;
 }
 
+void Bureaucrat::executeForm(Form const &form)
+{
+    if (this->_grade <= form.getGradeExecute())
+        std::cout << this->_name + "executes" + form.getName() << std::endl;
+    else
+        throw Exception("Grade too low for execute!");
+}
+
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
 {
     os << bureaucrat.getName() + ", bureaucrat grade " << bureaucrat.getGrade();
