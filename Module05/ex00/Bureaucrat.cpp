@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "Exception.hpp"
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
@@ -11,7 +10,6 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 
 Bureaucrat::Bureaucrat() : _name("def"), _grade(-1)
 {
-    throw Exception("No NAME and GRADE");
 }
 
 Bureaucrat::~Bureaucrat()

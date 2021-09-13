@@ -1,5 +1,4 @@
 #include "Bureaucrat.hpp"
-#include "Exception.hpp"
 
 int main ( void )
 {
@@ -8,9 +7,9 @@ int main ( void )
         Bureaucrat a;
         std::cerr << a << std::endl;
     }
-    catch(Exception &e)
+    catch(std::exception &e)
     {
-        e.error();
+        std::cerr << e.what() << std::endl;
     }
 
     try
@@ -18,9 +17,9 @@ int main ( void )
         Bureaucrat a("Tom", 1);
         std::cerr << a << std::endl;
     }
-    catch(Exception &e)
+    catch(std::exception &e)
     {
-        e.error();
+        std::cerr << e.what() << std::endl;
     }
 
     try
@@ -29,10 +28,11 @@ int main ( void )
         std::cerr << a << std::endl;
         a.incrementGrade();
         std::cerr << a << std::endl;
+        a.incrementGrade();
     }
-    catch(Exception &e)
+    catch(std::exception &e)
     {
-        e.error();
+        std::cerr << e.what() << std::endl;
     }
     return 0;
 }

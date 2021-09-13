@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 #include "Bureaucrat.hpp"
+#include "Exception.hpp"
 
 class Form
 {

@@ -5,8 +5,16 @@
 class ShrubberyCreationForm : public Form
 {
 private:
-    /* data */
+    static int _gradeRequired;
+    static int _gradeExecute;
+    std::string _target;
 public:
     ShrubberyCreationForm(/* args */);
+    ShrubberyCreationForm(std::string target);
     ~ShrubberyCreationForm();
+
+    void execute(Bureaucrat const &executor) const;
+
+    ShrubberyCreationForm(const ShrubberyCreationForm &other);
+    ShrubberyCreationForm &operator = (const ShrubberyCreationForm &other);
 };

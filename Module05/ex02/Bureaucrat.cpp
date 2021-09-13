@@ -11,7 +11,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 
 Bureaucrat::Bureaucrat() : _name("def"), _grade(-1)
 {
-    throw Exception("No NAME and GRADE");
+    
 }
 
 Bureaucrat::~Bureaucrat()
@@ -46,12 +46,12 @@ void Bureaucrat::decrementGrade( void )
 
 void Bureaucrat::_GradeTooHighException( void )
 {
-    throw Exception("GradeTooHighException");
+    // throw GradeTooHighException();
 }
 
 void Bureaucrat::_GradeTooLowException( void )
 {
-    throw Exception("GradeTooLowException");
+    // throw GradeTooLowException();
 }
 
 void Bureaucrat::signForm(std::string name, int isSigned)
@@ -67,7 +67,7 @@ void Bureaucrat::executeForm(Form const &form)
     if (this->_grade <= form.getGradeExecute())
         std::cout << this->_name + "executes" + form.getName() << std::endl;
     else
-        throw Exception("Grade too low for execute!");
+        Bureaucrat::_GradeTooLowException();
 }
 
 std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)

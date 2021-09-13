@@ -12,9 +12,9 @@ int main ( void )
         form.beSigned(tom);
         form.beSigned(ivan);
     }
-    catch(Exception& e)
+    catch(std::exception & e)
     {
-        e.error();
+        std::cerr << e.what() << std::endl;
     }
     return 0;
 }

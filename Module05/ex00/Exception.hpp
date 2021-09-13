@@ -1,11 +1,10 @@
-#pragma once
 #include <iostream>
-class Exception
+
+class Exception : public std::exception
 {
 private:
-    std::string _error;
+    const char *_error;
 public:
-    Exception(std::string error);
-    ~Exception();
-    void error( void );
+    Exception(const char *error);
+    const char* what() const throw();
 };

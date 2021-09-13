@@ -8,14 +8,18 @@ int main ( void )
 {
     try
     {
-    Bureaucrat jack("Jack", 4);
-    PresidentialPardonForm form("Tom");
+        Bureaucrat jack("Jack", 4);
+        Bureaucrat ivan("Ivan", 138);
+        RobotomyRequestForm form("Tom");
     // Bureaucrat jack("Jack", 4);
-    form.execute(jack);
+        form.beSigned(jack);
+        form.beSigned(jack);
+        form.execute(jack);
+        form.execute(ivan);
     }
-    catch (Exception &e)
+    catch (std::exception &e)
     {
-        e.error();
+        std::cerr << e.what() << std::endl;
     }
     return 0;
 }

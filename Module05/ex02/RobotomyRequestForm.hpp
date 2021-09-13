@@ -5,10 +5,15 @@
 class RobotomyRequestForm : public Form
 {
 private:
-    /* data */
+    std::string _target;
+    static int _gradeRequired;
+    static int _gradeExecute;
 public:
-    RobotomyRequestForm(int gradeRequired, int gradeExecute);
+    RobotomyRequestForm();
+    RobotomyRequestForm(std::string target);
     ~RobotomyRequestForm();
+
+    void execute(Bureaucrat const &executor) const;
 
     RobotomyRequestForm(const RobotomyRequestForm &other);
     RobotomyRequestForm &operator = (const RobotomyRequestForm &other);

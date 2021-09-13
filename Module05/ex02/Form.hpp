@@ -16,10 +16,30 @@ protected:
     int _gradeRequired;
     int _gradeExecute;
     bool _isSigned;
+
+    class GradeTooHighException: public std::exception
+    {
+        const char * what() const throw();
+    };
+
+    class GradeTooLowException: public std::exception
+    {  
+        const char * what() const throw();
+    };
+
+    class FormNotSignedException: public std::exception
+    {  
+        const char * what() const throw();
+    };
+
+    class FormAlreadySignedException: public std::exception
+    {  
+        const char * what() const throw();
+    };
 public:
     Form(/* args */);
     Form(std::string name, int gradeReq, int gradeExe);
-    virtual ~Form();
+    ~Form();
     void virtual execute(Bureaucrat const &executor) const = 0;
     std::string getName( void ) const;
     int getGradeRequired( void ) const;

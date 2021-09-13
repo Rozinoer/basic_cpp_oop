@@ -1,9 +1,9 @@
 #include "Form.hpp"
 #include "Exception.hpp"
 
-Form::Form(/* args */) : _gradeRequired(-1), _gradeExecute(1)
+Form::Form(/* args */) : _name("Default name"), _gradeRequired(150), _gradeExecute(150)
 {
-    throw Exception("Ivalid Form init");
+
 }
 
 Form::Form(std::string name, int gradeReq, int gradeExe) : _name(name),
@@ -17,14 +17,13 @@ Form::Form(std::string name, int gradeReq, int gradeExe) : _name(name),
 
 void Form::_GradeTooHighException( void )
 {
-    throw Exception("GradeTooHighException");
+    throw Form::GradeTooHighException();
 }
 
 void Form::_GradeTooLowException( void )
 {
-    throw Exception("GradeTooLowException");
+    throw Form::GradeTooLowException();
 }
-
 std::string Form::getName( void ) const
 {
     return this->_name;
@@ -45,11 +44,29 @@ void Form::beSigned(Bureaucrat &bureaucrat)
     else if (this->_isSigned == 0)
     {
         this->_isSigned = 1;
-        bureaucrat.signForm(this->getName(), this->_isSigned);
+        bureaucrat.signForm(this->getName(), 1);
     }
     else
-        bureaucrat.signForm(this->getName(), this->_isSigned);
+        bureaucrat.signForm(this->getName(), 0);
 }
+
+const char * Form::GradeTooHighException::what() const throw()
+{
+    return "GradeTooHighException";
+}
+const char * Form::GradeTooLowException::what() const throw()
+{
+    return "GradeTooLowException";
+}
+const char * Form::FormNotSignedException::what() const throw()
+{
+    return "FormNotSignedException";
+}
+const char * Form::FormAlreadySignedException::what() const throw()
+{
+    return "FormAlreadySignedException";
+}
+
 
 Form::~Form()
 {

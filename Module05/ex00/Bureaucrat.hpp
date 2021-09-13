@@ -1,7 +1,7 @@
 #pragma once
 
 #include <iostream>
-
+#include "Exception.hpp"
 class Bureaucrat
 {
 private:
@@ -10,6 +10,7 @@ private:
 
     static void _GradeTooHighException( void );
     static void _GradeTooLowException( void );
+
 public:
     Bureaucrat(std::string const name, int grade);
     Bureaucrat( void );

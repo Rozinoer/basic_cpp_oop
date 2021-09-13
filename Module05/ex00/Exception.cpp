@@ -1,15 +1,11 @@
 #include "Exception.hpp"
 
-Exception::Exception(std::string error) : _error(error)
+Exception::Exception(const char *error) : _error(error)
 {
+
 }
 
-Exception::~Exception()
+const char* Exception::what() const throw()
 {
+    return this->_error;
 }
-
-void Exception::error( void )
-{
-    std::cout << this->_error << std::endl;
-}
-
