@@ -3,9 +3,8 @@
 int PresidentialPardonForm::_gradeExecute = 5;
 int PresidentialPardonForm::_gradeRequired = 25;
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", _gradeRequired, _gradeExecute), _target(target)
+PresidentialPardonForm::PresidentialPardonForm(std::string target) : Form("PresidentialPardonForm", _gradeRequired, _gradeExecute),_target(target)
 {
-
 }
 
 PresidentialPardonForm::~PresidentialPardonForm()
@@ -14,12 +13,11 @@ PresidentialPardonForm::~PresidentialPardonForm()
 
 void PresidentialPardonForm::execute(Bureaucrat const &executor) const
 {
-    if (PresidentialPardonForm::_gradeExecute >= executor.getGrade())
-    {
-        std::cout << this->_target + " has been pardoned by Zafod Beeblebrox" << std::endl;
-    }
-    else
+    if (!this->_isSigned)
+        Form::FormNotSignedException();
+    if (PresidentialPardonForm::_gradeExecute < executor.getGrade())
         Form::_GradeTooLowException();
+    std::cout << this->_target + " has been pardoned by Zafod Beeblebrox" << std::endl;
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other)

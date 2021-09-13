@@ -34,6 +34,12 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
     this->_energyPoints = 100;
 }
 
+void FragTrap::attack(std::string const & target)
+{
+    std::cout << "FragTrap " + this->_Name + " attack " + target
+    + ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+}
+
 FragTrap::FragTrap(/* args */)
 {
     std::cout << "(FragTrap)Default constructor called" << std::endl;

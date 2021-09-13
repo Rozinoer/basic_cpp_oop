@@ -19,8 +19,14 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
     return *(this);
 }
 
+ScavTrap::ScavTrap() : ClapTrap()
+{
+    std::cout << "[ScavTrap] Def constructor called" << std::endl;
+}
+
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
+    std::cout << "[ScavTrap] String constructor called" << std::endl;
     this->_Hitpoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
@@ -33,4 +39,10 @@ ScavTrap::~ScavTrap()
 void ScavTrap::guardGate()
 {
     std::cout << "ScavTrap have enterred in Gate keeper mode." << std::endl;
+}
+
+void ScavTrap::attack(std::string const & target)
+{
+    std::cout << "ScavTrap " + this->_Name + " attack " + target
+    + ", causing " << this->_attackDamage << " points of damage!" << std::endl;
 }

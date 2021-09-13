@@ -9,6 +9,8 @@ private:
     std::string _name;
 public:
     void whoAmI( void );
+    using FragTrap::attack;
+    int getDamage();
     DiamondTrap(/* args */);
     DiamondTrap(std::string name);
     ~DiamondTrap();

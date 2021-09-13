@@ -36,6 +36,16 @@ protected:
     {  
         const char * what() const throw();
     };
+
+    class FormNotSignedException: public std::exception
+    {
+        const char * what() const throw();
+    };
+
+    class FormAlreadySignedException: public std::exception
+    {
+        const char * what() const throw();
+    };
 public:
     Form(/* args */);
     Form(std::string name, int gradeReq, int gradeExe);

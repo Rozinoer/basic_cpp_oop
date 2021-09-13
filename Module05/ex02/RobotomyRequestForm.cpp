@@ -16,14 +16,14 @@ RobotomyRequestForm::~RobotomyRequestForm()
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const &executor) const
-{
-    if (RobotomyRequestForm::_gradeExecute >= executor.getGrade())
-    {
-        std::cout << "*******************some drilling noises*******************" << std::endl;
-        std::cout << this->_target + " has been robotomized successfully 50% of the time." << std::endl;
-    }
-    else
+{   
+    if (!this->_isSigned)
+        Form::FormNotSignedException();
+    if (RobotomyRequestForm::_gradeExecute < executor.getGrade())
         Form::_GradeTooLowException();
+        
+    std::cout << "*******************some drilling noises*******************" << std::endl;
+    std::cout << this->_target + " has been robotomized successfully 50% of the time." << std::endl;
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other)

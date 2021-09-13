@@ -49,7 +49,7 @@ ClapTrap::ClapTrap(std::string Name)
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "(ClapTrap)Default constructor called" << std::endl;
     this->_Name = "";
     this->_Hitpoints = 0;
     this->_energyPoints = 0;

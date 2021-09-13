@@ -4,7 +4,9 @@
 int main ( void )
 {
     // ClapTrap trap = ClapTrap("Tom");
-    FragTrap frag = FragTrap("Ivan");
+    FragTrap frag = FragTrap();
+    FragTrap tom = FragTrap("Tom");
     frag.highFivesGuys();
+    tom.attack("BUGGGGG");
     return (0);
 }

@@ -11,11 +11,13 @@ int main ( void )
         Bureaucrat jack("Jack", 4);
         Bureaucrat ivan("Ivan", 138);
         RobotomyRequestForm form("Tom");
+        ShrubberyCreationForm sh("ascii tree");
     // Bureaucrat jack("Jack", 4);
         form.beSigned(jack);
         form.beSigned(jack);
         form.execute(jack);
-        form.execute(ivan);
+        // form.execute(ivan);
+        jack.executeForm(sh);
     }
     catch (std::exception &e)
     {
