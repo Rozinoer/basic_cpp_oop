@@ -2,13 +2,13 @@
 
 ClapTrap::ClapTrap(ClapTrap const &other)
 {
-    std::cout << "Copy constructor" << std::endl;
+    std::cout << C_GREEN << "[ClapTrap]Copy constructor" << C_RESET << std::endl;
     *this = other;
 }
  
 ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
-    std::cout << "Assignation operator called" << std::endl;
+    std::cout << C_GREEN << "[ClapTrap]Assignation operator called" << C_RESET << std::endl;
     if (this != &other)
     {
         this->_Name = other._Name;
@@ -21,26 +21,26 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 
 void ClapTrap::attack(std::string const & target)
 {
-    std::cout << "ClapTrap " + this->_Name + " attack " + target
-    + ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+    std::cout << C_GREEN << "ClapTrap " + this->_Name + " attack " + target
+    + ", causing " << this->_attackDamage << " points of damage!" << C_RESET << std::endl;
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
     this->_Hitpoints -= amount;
-    std::cout << amount << " point(s) of damage received" << std::endl;
+    std::cout << C_CYAN << amount << " point(s) of damage received" << C_RESET << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
     this->_Hitpoints += amount;
     this->_energyPoints -= amount;
-    std::cout << amount << " point(s) of health restored" << std::endl;
+    std::cout << C_GREEN << amount << " point(s) of health restored" << C_RESET << std::endl;
 }
 
 ClapTrap::ClapTrap(std::string Name)
 {
-    std::cout << "\tString constructor called" << std::endl;
+    std::cout << C_GREEN << "[ClapTrap]String constructor called" << C_RESET << std::endl;
     this->_Name = Name;
     this->_Hitpoints = 10;
     this->_energyPoints = 10;
@@ -49,7 +49,7 @@ ClapTrap::ClapTrap(std::string Name)
 
 ClapTrap::ClapTrap()
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << C_GREEN <<  "[ClapTrap]Default constructor called" << C_RESET << std::endl;
     this->_Name = "";
     this->_Hitpoints = 0;
     this->_energyPoints = 0;
@@ -58,5 +58,5 @@ ClapTrap::ClapTrap()
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "\tDefault destructor called" << std::endl;
+    std::cout << C_RED << "[ClapTrap]Default destructor called" << C_RESET << std::endl;
 }

@@ -2,13 +2,13 @@
 
 ScavTrap::ScavTrap(ScavTrap const &other)
 {
-    std::cout << "Copy constructor" << std::endl;
+    std::cout << C_GREEN << "[ScavTrap]Copy constructor" << C_RESET << std::endl;
     *this = other;
 }
  
 ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
-    std::cout << "Assignation operator called" << std::endl;
+    std::cout << C_GREEN << "[ScavTrap]Assignation operator called" << C_RESET << std::endl;
     if (this != &other)
     {
         this->_Name = other._Name;
@@ -21,12 +21,12 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-    std::cout << "[ScavTrap] Def constructor called" << std::endl;
+    std::cout <<C_GREEN << "[ScavTrap]Default constructor called" << C_RESET << std::endl;
 }
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {
-    std::cout << "[ScavTrap] String constructor called" << std::endl;
+    std::cout <<C_GREEN <<  "[ScavTrap] String constructor called" << C_RESET << std::endl;
     this->_Hitpoints = 100;
     this->_energyPoints = 50;
     this->_attackDamage = 20;
@@ -34,15 +34,16 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::~ScavTrap()
 {
+    std::cout << C_RED << "[ScavTrap]Constructor called" << C_RESET << std::endl;
 }
 
 void ScavTrap::guardGate()
 {
-    std::cout << "ScavTrap have enterred in Gate keeper mode." << std::endl;
+    std::cout << C_CYAN << "ScavTrap have enterred in Gate keeper mode." << C_RESET << std::endl;
 }
 
 void ScavTrap::attack(std::string const & target)
 {
-    std::cout << "ScavTrap " + this->_Name + " attack " + target
-    + ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+    std::cout << C_CYAN << "ScavTrap " + this->_Name + " attack " + target
+    + ", causing " << this->_attackDamage << " points of damage!" << C_RESET << std::endl;
 }
