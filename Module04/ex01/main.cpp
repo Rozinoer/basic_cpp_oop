@@ -13,12 +13,12 @@ void deepTest()
     // a.makeSound();
     // b.makeSound();
     // wolf = dog;
-    Dog *wolf = new Dog("q", "wolf");
-    Dog *dog = new Dog("q", "dog");
-    wolf = dog;
+    // Dog *wolf = new Dog("q", "wolf");
+    // Dog *dog = new Dog("q", "dog");
+    // wolf = dog;
     // delete dog;
-    delete wolf;
-    delete dog;
+    // delete wolf;
+    // delete dog;
 }
 
 int main ( void )

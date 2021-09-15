@@ -33,7 +33,7 @@ AMateria &AMateria::operator=(const AMateria &other)
     std::cout << "[AMateria]\tAssignation operator called" << std::endl;
     if (this != &other)
     {
-        
+        type = other.type;
     }
     return *(this);
 }

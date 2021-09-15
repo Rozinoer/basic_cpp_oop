@@ -5,9 +5,10 @@
 class Cat : public Animal
 {
 private:
-    /* data */
+    Brain* _brain;
 public:
-    void makeSound();
+    void showIdeas() const;
+    void makeSound() const;
     Cat(/* args */);
     ~Cat();
     Cat(const Cat &other);

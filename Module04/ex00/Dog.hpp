@@ -7,7 +7,7 @@ class Dog : public Animal
 private:
 
 public:
-    void makeSound();
+    void makeSound() const;
     Dog(/* args */);
     ~Dog();
     Dog(const Dog &other);

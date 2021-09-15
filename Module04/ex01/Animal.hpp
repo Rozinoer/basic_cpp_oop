@@ -5,13 +5,10 @@
 class Animal
 {
 protected:
-    std::string type;
-    Brain* brain;
+    std::string _type;
 public:
-    void showIdeas();
-    virtual void makeSound();
+    virtual void makeSound() const;
     Animal(/* args */);
-    Animal(std::string type);
     virtual ~Animal();
     Animal(const Animal &other);
     Animal &operator = (const Animal &other);

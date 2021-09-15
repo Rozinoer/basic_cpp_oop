@@ -7,7 +7,7 @@ class Cat : public Animal
 private:
     /* data */
 public:
-    void makeSound();
+    void makeSound() const;
     Cat(/* args */);
     ~Cat();
     Cat(const Cat &other);

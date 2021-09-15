@@ -31,7 +31,11 @@ Character &Character::operator=(const Character &other)
     {
         this->_name = other._name;
         for (int i = 0; i < 4; i++)
-            this->_spells[i] = other._spells[i];
+        {
+            if (_spells[i])
+                delete _spells[i];
+            this->_spells[i] = other._spells[i]->clone();
+        }
     }
     return *(this);
 }

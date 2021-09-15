@@ -1,19 +1,26 @@
 #include "Dog.hpp"
 
-Dog::Dog(/* args */) : Animal("Dog")
+Dog::Dog(/* args */)
 {
-    this->brain = new Brain;
+    this->_brain = new Brain;
+    this->type = "Dog";
 }
 
 Dog::~Dog()
 {
-    delete this->brain;
+    delete this->_brain;
     std::cout << "Dog distructor called" << std::endl;
 }
 
-void Dog::makeSound()
+void Dog::makeSound() const
 {
     std::cout << "🐕: Yip" << std::endl;
+}
+
+void Dog::showIdeas() const
+{
+    if (this->_brain)
+        _brain->showIdea();
 }
 
 Dog::Dog(Dog const &other)
@@ -27,9 +34,8 @@ Dog &Dog::operator=(const Dog &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        for (int i = 0; i < this->brain->_ideas->size(); i++)
-            this->brain->_ideas[i] = other.brain->_ideas[i];
-        this->type = other.type;
+        *_brain = *other._brain;
+        Animal::operator=(other);
     }
     return *(this);
 }

@@ -1,11 +1,11 @@
 #include "Cat.hpp"
 
-Cat::Cat(/* args */) : Animal("Cat")
+Cat::Cat(/* args */)
 {
-
+    this->_type = "Cat";
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
     std::cout << "🐈: Meow" << std::endl;
 }
@@ -25,7 +25,7 @@ Cat &Cat::operator=(const Cat &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        this->type = other.type;
+        this->_type = other._type;
     }
     return *(this);
 }

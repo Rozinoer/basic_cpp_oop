@@ -1,18 +1,13 @@
 #include "Animal.hpp"
 
-void Animal::makeSound()
+void Animal::makeSound() const
 {
     std::cout << "def" << std::endl;
 }
 
 Animal::Animal(/* args */)
 {
-    this->type = "def";
-}
-
-Animal::Animal(std::string type)
-{
-    this->type = type;
+    this->_type = "def";
 }
 
 Animal::~Animal()
@@ -31,18 +26,7 @@ Animal &Animal::operator=(const Animal &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        for (size_t i = 0; i < this->brain->_ideas->size(); i++)
-            this->brain->_ideas[i] = other.brain->_ideas[i];
-        this->type = other.type;
+        this->_type = other._type;
     }
     return *(this);
-}
-
-void Animal::showIdeas()
-{
-    for (int i = 0; i < 1; i++)
-    {
-        if (brain)
-            std::cout << this->brain->_ideas[i] << std::endl;
-    }
 }

@@ -10,11 +10,6 @@ Animal::Animal(/* args */)
     this->type = "def";
 }
 
-Animal::Animal(std::string type)
-{
-    this->type = type;
-}
-
 Animal::~Animal()
 {
     std::cout << "Animal distructor called" << std::endl;
@@ -31,18 +26,7 @@ Animal &Animal::operator=(const Animal &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        for (int i = 0; i < this->brain->_ideas->size(); i++)
-            this->brain->_ideas[i] = other.brain->_ideas[i];
         this->type = other.type;
     }
     return *(this);
-}
-
-void Animal::showIdeas()
-{
-    for (int i = 0; i < 100; i++)
-    {
-        if (brain)
-            std::cout << this->brain->_ideas[i] << std::endl;
-    }
 }

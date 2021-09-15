@@ -6,8 +6,20 @@ Brain::Brain(/* args */)
         this->_ideas[i] = "some idea";
 }
 
+Brain::Brain(std::string idea)
+{
+    for( int i = 0; i < 100; i++)
+        this->_ideas[i] = idea;
+}
+
 Brain::~Brain()
 {
+}
+
+void Brain::showIdea() const
+{
+    for (int i = 0; i < 100; i++)
+            std::cout << this->_ideas[i] << std::endl;
 }
 
 Brain::Brain(Brain const &other)

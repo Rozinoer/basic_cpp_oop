@@ -5,10 +5,11 @@
 class Dog : public Animal
 {
 private:
-
+    Brain* _brain;
 public:
-    void makeSound();
-    Dog(std::string idea, std::string type);
+    void showIdeas() const;
+    void makeSound() const;
+    // Dog(std::string idea, std::string type);
     Dog(/* args */);
     ~Dog();
     Dog(const Dog &other);

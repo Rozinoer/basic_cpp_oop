@@ -1,18 +1,25 @@
 #include "Cat.hpp"
 
-Cat::Cat(/* args */) : Animal("Cat")
+Cat::Cat(/* args */)
 {
-    this->brain = new Brain();
+    this->_brain = new Brain();
+    this->_type = "Cat";
 }
 
-void Cat::makeSound()
+void Cat::makeSound() const
 {
     std::cout << "🐈: Meow" << std::endl;
 }
 
+void Cat::showIdeas() const
+{
+    if (this->_brain)
+        this->_brain->showIdea();
+}
+
 Cat::~Cat()
 {
-    delete this->brain;
+    delete this->_brain;
     std::cout << "Cat distructor called" << std::endl;
 }
 
@@ -27,8 +34,8 @@ Cat &Cat::operator=(const Cat &other)
     std::cout << "Assignation operator called" << std::endl;
     if (this != &other)
     {
-        for (size_t i = 0; i < this->brain->_ideas->size(); i++)
-            this->brain->_ideas[i] = other.brain->_ideas[i];
+        *_brain = *other._brain;
+        Animal::operator=(other);
     }
     return *(this);
 }

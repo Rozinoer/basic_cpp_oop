@@ -4,12 +4,11 @@
 class Animal
 {
 protected:
-    std::string type;
+    std::string _type;
 public:
-    virtual void makeSound();
+    virtual void makeSound() const;
     Animal(/* args */);
-    Animal(std::string type);
-    ~Animal();
+    virtual ~Animal();
     Animal(const Animal &other);
     Animal &operator = (const Animal &other);
 };
