@@ -11,8 +11,9 @@ bool is_dot(std::string str)
 
 bool is_dash(std::string str)
 {
-	if (str.find('-') != std::string::npos && (str.find('-') != str.rfind('-')
-		|| str.find('-') != 0))
+	if (str.find('-') != std::string::npos
+	&& (str.find('-') != str.rfind('-')
+	|| str.find('-') != 0))
 		return true;
 	return false;
 }
@@ -23,7 +24,7 @@ bool is_valid_sym(std::string str)
 
 	while (i < str.length() - 1)
 	{
-		if (!isdigit(str[i]) && str[i] != '-' && str[i] != '.')
+		if (('0' > (str[i]) || '9' < (str[i])) && str[i] != '-' && str[i] != '.')
 			return false;
 		i++;
 	}
@@ -32,7 +33,7 @@ bool is_valid_sym(std::string str)
 
 bool	is_char(std::string const & str)
 {
-	if (str.length() != 1 || isdigit(str[0]))
+	if (str.length() != 1 || (str[0] >= '0' && str[0] <= '9'))
 		return false;
 	return true;
 }
@@ -46,7 +47,7 @@ bool	is_int(std::string const & str)
 		return false;
 	while (i < str.length())
 	{
-		if (!isdigit(str[i]) && str[i] != '-')
+		if (('0' > (str[i]) || '9' < (str[i])) && str[i] != '-')
 			return false;
 		i++;
 	}

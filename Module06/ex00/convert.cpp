@@ -7,11 +7,6 @@
 #include <cstdlib>
 #include <math.h>
 
-bool	is_char(std::string const & str);
-bool	is_int(std::string const & str);
-bool	is_float(std::string const & str);
-bool	is_double(std::string const & str);
-
 void	to_char(std::string const & str)
 {
 	char	c = str[0];
@@ -46,7 +41,7 @@ bool	to_int(std::string const & str)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << staticChar << "'" << std::endl;
-
+	//-----------int_Float_Double---------------------------
 	std::cout << "int: " << i << std::endl;
 	std::cout << "float: " << staticFloat << ".0f" << std::endl;
 	std::cout << "double: " << staticDouble << ".0" << std::endl;
@@ -58,16 +53,15 @@ bool	to_float(std::string const & str)
 	char staticChar;
 	int staticInt;
 	double staticDouble;
-
-	strtod(str.data(), NULL);
-	float	f;
+	// string to double (atof)
+	float	f = strtod(str.data(), NULL);;
 
 	if (errno == ERANGE)
 	{
 		std::cerr << "Error: float value out of range" << std::endl;
 		return (false);
 	}
-	f = atof(str.data());
+	// f = atof(str.data()); // string to double (strtod)
 	staticChar = static_cast<char>(f);
 	staticInt = static_cast<long>(f);
 	staticDouble = static_cast<double>(f);

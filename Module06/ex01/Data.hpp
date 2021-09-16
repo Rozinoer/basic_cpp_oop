@@ -17,5 +17,3 @@ class Data
 		int	getValue() const;
 
 };
-
-std::ostream &operator<<( std::ostream & o, Data const & i );
