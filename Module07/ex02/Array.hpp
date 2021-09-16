@@ -1,99 +1,84 @@
-
-#ifndef ARRAY_HPP
-# define ARRAY_HPP
-
+#pragma once
 # include <iostream>
 # include <string>
 
-template<typename T>
-class Array
+template<typename T> class Array
 {
-
+	private:
+		T			*_array;
+		unsigned int _size;
 	public:
-
-		Array(): m_size(0), m_array(NULL) {};
-		Array(unsigned int n): m_array(new T[n]), m_size(n) {};
-		Array( Array const & src ): m_size(src.m_size)
+		Array(): _size(0), _array(NULL) {};
+		Array(unsigned int n): _array(new T[n]), _size(n) {};
+		Array( Array const & other ): _size(other._size)
 		{
 			unsigned int i = 0;
-			m_array = new T[m_size];
+			_array = new T[_size];
 
-			while (i < m_size)
+			while (i < _size)
 			{
-				m_array[i] = src.m_array[i];
+				_array[i] = other._array[i];
 				i++;
 			}
 		};
 		~Array() 
 		{
-			if (m_array)
-				delete [] m_array;
+			if (_array)
+				delete [] _array;
 		};
-		Array &		operator=( Array const & rhs )
+		Array &		operator=( Array const & other )
 		{
 			unsigned int	i = 0;
 
-			if (&rhs == this)
+			if (this == &other)
 				return (*this);
-			if (m_array)
-				delete [] m_array;
-			m_size = rhs.m_size;
-			if (m_size)
+			if (_array)
+				delete [] _array;
+			_size = other._size;
+			if (_size)
 			{
-				m_array = new T[m_size];
-				while (i < m_size)
+				_array = new T[_size];
+				while (i < _size)
 				{
-					m_array[i] = rhs.m_array[i];
+					_array[i] = other._array[i];
 					i++;
 				}
 			}
 			else
-				m_array = NULL;
+				_array = NULL;
 		};
 		T &	operator[](unsigned int i)
 		{
-			if (i >= m_size)
+			if (i >= _size)
 			{
-				throw OutOfRange();
+				throw Erange();
 			}
-			return (m_array[i]);
+			return (_array[i]);
 		};
 		T	operator[](unsigned int i) const
 		{
-			if (i >= m_size)
+			if (i >= _size)
 			{
-				throw OutOfRange();
+				throw Erange();
 			}
-			return (m_array[i]);
+			return (_array[i]);
 		};
 		unsigned int	size(void) const
 		{
-			return (m_size);
+			return (_size);
 		}
-		class OutOfRange: public std::exception
+		class Erange: public std::exception
 		{
 			const char * what() const throw()
 			{
-				return ("Out of range...");
+				return ("Out of range");
 			};
 		};
-	private:
-		T			*m_array;
-		unsigned int m_size;
-
 };
 
-template<typename T>
-std::ostream &			operator<<( std::ostream & o, Array<T> const & rhs )
+template<typename T> std::ostream &	operator<<( std::ostream & o, Array<T> const & other )
 {
-	unsigned int	i = 0;
-	
-	while (i < rhs.size())
-	{
-		o << rhs[i] << std::endl;
-		i++;
-	}
+	for (int i = 0;i < other.size(); i++)
+		o << other[i] <<  std::endl;
 	return (o);
 }
-
-#endif /* *********************************************************** ARRAY_H */

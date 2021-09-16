@@ -3,7 +3,7 @@ CC = clang++ -g -std=c++98
 
 CFLAGS = -Wall -Wextra -Werror
 
-HEADER = whatever.hpp
+HEADER = Array.hpp
 
 SRC = main.cpp \
 		

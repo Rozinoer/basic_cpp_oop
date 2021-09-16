@@ -1,4 +1,3 @@
-
 #include "easyfind.hpp"
 #include <vector>
 #include <stack>
@@ -13,11 +12,15 @@ int main(void)
 	std::vector<char>			wrong(10, 'o');
 	std::vector<char>::iterator	wrong_it;
 
-	it = easyfind(container, VALUE);
-	if (it != container.end())
-		std::cout << VALUE << " has been found" << std::endl;
-	else
-		std::cout << VALUE << " has not been found" << std::endl;
+	try
+	{	
+		it = easyfind(container, VALUE);
+		if (it != container.end())
+			std::cout << VALUE << " has been found" << std::endl;
+		else
+			std::cout << VALUE << " has not been found" << std::endl;
+	}
+	catch (const std::exception &e){ std::cerr << e.what() << std::endl;}
 	try
 	{
 		wrong_it = easyfind(wrong, VALUE);

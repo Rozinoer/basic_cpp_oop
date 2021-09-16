@@ -10,7 +10,7 @@
 int main(void)
 {
 	std::cout << C_YELLOW << "Subject's tests" << C_RESET << std::endl;
-	{	// Subject's tests
+	{	
 		Span	sp(5);
 
 		sp.addNumber(5);

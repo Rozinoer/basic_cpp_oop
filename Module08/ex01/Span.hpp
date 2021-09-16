@@ -1,6 +1,4 @@
-
-#ifndef SPAN_HPP
-# define SPAN_HPP
+#pragma once
 
 # include <iostream>
 # include <string>
@@ -67,5 +65,3 @@ void	Span::addRange(InputIterator first, InputIterator last)
 }
 
 std::ostream &			operator<<( std::ostream & o, Span const & i );
-
-#endif /* ************************************************************ SPAN_H */

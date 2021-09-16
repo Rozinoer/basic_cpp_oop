@@ -1,10 +1,5 @@
-
 #include "Span.hpp"
 #include <algorithm>
-
-/*
-** ------------------------------- CONSTRUCTOR --------------------------------
-*/
 
 Span::Span(): m_max(0)
 {
@@ -18,18 +13,9 @@ Span::Span( unsigned int n): m_max(n)
 {
 }
 
-/*
-** -------------------------------- DESTRUCTOR --------------------------------
-*/
-
 Span::~Span()
 {
 }
-
-
-/*
-** --------------------------------- OVERLOAD ---------------------------------
-*/
 
 Span &				Span::operator=( Span const & rhs )
 {
@@ -49,10 +35,6 @@ std::ostream &			operator<<( std::ostream & o, Span const & i )
 	}
 	return o;
 }
-
-/*
-** --------------------------------- METHODS ----------------------------------
-*/
 
 void	Span::addNumber(int const nb)
 {
@@ -91,13 +73,7 @@ unsigned int	Span::longestSpan(void) const
 	return (*(list.end() - 1) - *list.begin());
 }
 
-/*
-** --------------------------------- ACCESSOR ---------------------------------
-*/
-
 std::vector<int>	Span::getList(void) const
 {
 	return (m_list);
 }
-
-/* ************************************************************************** */
