@@ -1,15 +1,21 @@
 #pragma once
-
 #include <iostream>
-#include "Form.hpp"
+#include "Exception.hpp"
+#include "Bureaucrat.hpp"
 
-class Form;
+class Bureaucrat;
 
-class Bureaucrat
+class Form
 {
 private:
-    std::string const _name;
-    int _grade;
+    
+protected:
+    static void _GradeTooHighException( void );
+    static void _GradeTooLowException( void );
+    std::string _name;
+    int _gradeRequired;
+    int _gradeExecute;
+    bool _isSigned;
 
     class GradeTooHighException: public std::exception
     {
@@ -41,18 +47,16 @@ private:
         const char * what() const throw();
     };
 public:
-    Bureaucrat(std::string const name, int grade);
-    Bureaucrat( void );
-    ~Bureaucrat();
-
-    void executeForm(Form const &form);
-    void signForm(std::string name, int isSigned);
-
-    void incrementGrade( void );
-    void decrementGrade( void );
-
-    std::string const getName( void ) const;
-    int getGrade( void ) const;
+    Form(/* args */);
+    Form(std::string name, int gradeReq, int gradeExe);
+    ~Form();
+    void virtual execute(Bureaucrat const &executor) const = 0;
+    virtual Form* clone(std::string target) = 0; 
+    std::string getName( void ) const;
+    bool isSigned() const;
+    int getGradeRequired( void ) const;
+    int getGradeExecute( void ) const;
+    void beSigned(Bureaucrat &bureaucrat);
 };
 
-std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);
+std::ostream &operator<<(std::ostream &os, const Form &form);

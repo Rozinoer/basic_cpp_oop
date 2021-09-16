@@ -52,6 +52,7 @@ public:
     ~Form();
     void virtual execute(Bureaucrat const &executor) const = 0;
     std::string getName( void ) const;
+    bool isSigned() const;
     int getGradeRequired( void ) const;
     int getGradeExecute( void ) const;
     void beSigned(Bureaucrat &bureaucrat);
