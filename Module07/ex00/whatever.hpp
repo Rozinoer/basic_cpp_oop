@@ -1,38 +1,26 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   whatever.hpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tvachera <tvachera@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/09 12:24:09 by tvachera          #+#    #+#             */
-/*   Updated: 2021/08/09 12:24:11 by tvachera         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
+#pragma once
 
-#ifndef WHATEVER_HPP
- #define WHATEVER_HPP
-
-template<typename T>
-void	swap(T & rhs, T & lhs)
+template<typename T> void swap(T & t1, T & t2)
 {
 	T	tmp;
 
-	tmp = rhs;
-	rhs = lhs;
-	lhs = tmp;
+	tmp = t1;
+	t1 = t2;
+	t2 = tmp;
 }
 
-template<typename T>
-T const &	min(T const & rhs, T const & lhs)
+template<typename T> T const &	min(T const & t1, T const & t2)
 {
-	return (rhs < lhs ? rhs : lhs);
+	if (t1 > t2)
+		return t2;
+	else
+		return t1;
 }
 
-template<typename T>
-T const &	max(T const & rhs, T const & lhs)
+template<typename T> T const &	max(T const & t1, T const & t2)
 {
-	return (rhs > lhs ? rhs : lhs);
+	if (t1 > t2)
+		return t1;
+	else
+		return t2;
 }
-
-#endif

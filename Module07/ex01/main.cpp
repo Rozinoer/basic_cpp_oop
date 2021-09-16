@@ -1,38 +1,6 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tvachera <tvachera@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/07 18:19:22 by tvachera          #+#    #+#             */
-/*   Updated: 2021/08/09 12:31:12 by tvachera         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "iter.hpp"
 #include <iostream>
 #include <string>
-
-class Awesome
-{
-	public:
-		Awesome( void ) : _n( 42 )
-		{
-		}
-		int get( void ) const
-		{
-			return (this->_n);
-		}
-	private:
-		int _n;
-};
-
-std::ostream & operator<<( std::ostream & o, Awesome const & rhs )
-{
-	o << rhs.get();
-	return (o);
-}
 
 template< typename T >
 void print( T const & x )
@@ -43,13 +11,12 @@ void print( T const & x )
 
 int main(void)
 {
-	std::string	str_array[5] = {"One", "Two", "Three", "For", "Five"};
-	Awesome		awesome_array[5];
-	int			size = 5;
+	std::string	str_array[4] = {"Школа" , "Школа", "School", "School"};
+	int int_array[4] = {21, 42, 42, 21};
+
+	int			size = 4;
 
 	::iter(str_array, size, ::print);
-	std::cout << std::endl;
-	// Array's type different (Class Awesome)
-	::iter(awesome_array, size, ::print);
+	::iter(int_array, size, ::print);
 	return (0);
 }
