@@ -1,21 +1,8 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tvachera <tvachera@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/08/08 20:11:05 by tvachera          #+#    #+#             */
-/*   Updated: 2021/08/09 12:37:55 by tvachera         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include "Array.hpp"
 #include <iostream>
-#include <ctime>
-#include <cstdlib>
+#include <Array.hpp>
 
-#define MAX_VAL 50 // Previous  was750
+#define MAX_VAL 750
 int main(int, char**)
 {
     Array<int> numbers(MAX_VAL);
@@ -27,10 +14,12 @@ int main(int, char**)
         numbers[i] = value;
         mirror[i] = value;
     }
+    //SCOPE
     {
         Array<int> tmp = numbers;
         Array<int> test(tmp);
     }
+
     for (int i = 0; i < MAX_VAL; i++)
     {
         if (mirror[i] != numbers[i])
@@ -55,11 +44,11 @@ int main(int, char**)
     {
         std::cerr << e.what() << '\n';
     }
+
     for (int i = 0; i < MAX_VAL; i++)
     {
         numbers[i] = rand();
     }
-    std::cout << numbers; // Added
-    delete [] mirror;
+    delete [] mirror;//
     return 0;
 }
