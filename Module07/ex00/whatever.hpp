@@ -1,6 +1,6 @@
 #pragma once
 
-template<typename T> void swap(T & t1, T & t2)
+template <typename T> void swap(T & t1, T & t2)
 {
 	T	tmp;
 

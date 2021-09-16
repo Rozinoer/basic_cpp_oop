@@ -2,8 +2,7 @@
 #include <iostream>
 #include <string>
 
-template< typename T >
-void print( T const & x )
+template <typename T> void print( T const & x )
 {
 	std::cout << x << std::endl;
 	return ;
