@@ -3,13 +3,8 @@
 #include <ctime>
 #include <cstdlib>
 
-#define MAX_VAL 50000
-#define C_YELLOW "\e[33m"
-#define C_RESET "\e[0m"
-
 int main(void)
 {
-	std::cout << C_YELLOW << "Subject's tests" << C_RESET << std::endl;
 	{	
 		Span	sp(5);
 
@@ -18,61 +13,56 @@ int main(void)
 		sp.addNumber(17);
 		sp.addNumber(9);
 		sp.addNumber(11);
+		std::cout << sp << std::endl;
 		std::cout << sp.shortestSpan() << std::endl;
 		std::cout << sp.longestSpan() << std::endl;
 	}
-	std::cout << std::endl << C_YELLOW << "Massive tests with random values & SIZE = " << MAX_VAL << C_RESET << std::endl;
-	{	// Massive tests
-		Span	sp(MAX_VAL);
-		srand(time(NULL));
-
-		for (size_t i = 0; i < MAX_VAL; i++)
-		{
-			sp.addNumber(rand());
-		}
-		std::cout << "shortest span: " << sp.shortestSpan() << std::endl; 
-		std::cout << "longest span: " << sp.longestSpan() << std::endl;
-	}
-	std::cout << std::endl << C_YELLOW << "Range insertion tests from an int array" << C_RESET << std::endl;
-	{	// Range insertion tests
-		Span	sp(10);
-		int		tab[10] = {2147483647, -2147483648, 0, 999, -666, 1, 42, -21, 17, -9999};
-
-		sp.addRange(tab, tab + 10);
-		std::cout << sp << std::endl;
-		std::cout << "shortest span: " << sp.shortestSpan() << std::endl; 
-		std::cout << "longest span: " << sp.longestSpan() << std::endl;
-
-	}
-	std::cout << C_YELLOW << std::endl << "Exception tests" << C_RESET << std::endl;
 	{
-		Span	sp(1);
+		Span sp(5);
+		std::cout<< "Size of empty list: " << sp.getList().size() << std::endl;
+		try
+		{
+			std::cout << sp.shortestSpan() << std::endl;
+			std::cout << sp.longestSpan() << std::endl;
+		}
+		catch(const std::exception& e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+	}
+	{
+		Span sp(5);
+		try
+		{
+			sp.fillArray(1, 5);
+			std::vector <int> list(sp.getList());
+			for (std::vector <int>::iterator i = list.begin(); i < list.end(); i++)
+				std::cout << *i << std::endl;
+			std::cout << std::endl;
+			sp.addNumber(999);
+			std::vector <int> _list(sp.getList());
+			for (std::vector <int>::iterator i = _list.begin(); i < _list.end(); i++)
+				std::cout << *i << std::endl;
+		}
+		catch (std::exception &e){std::cerr << e.what() << std::endl;}
+	}
+	{
+		Span sp(5);
+		try
+		{
+			sp.fillArray(0, 10);
+			std::vector <int> list(sp.getList());
+			for (std::vector<int>::iterator i = list.begin(); i < list.end() - 1; i++)
+				std::cout << *i << std::endl;
+		}
+		catch (std::exception &e){std::cerr << e.what() << std::endl;}
+	}
+	{	
+		Span	sp(5000);
 
-		try
-		{
-			sp.longestSpan();
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		sp.addNumber(42);
-		try
-		{
-			sp.shortestSpan();
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}
-		try
-		{
-			sp.addNumber(21);
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << std::endl;
-		}	
+		sp.fillArray(0, 5000);
+		std::cout << sp.shortestSpan() << std::endl;
+		std::cout << sp.longestSpan() << std::endl;
 	}
 	return (0);
 }

@@ -1,15 +1,15 @@
 #include "Span.hpp"
 #include <algorithm>
 
-Span::Span(): m_max(0)
+Span::Span(): _maxSize(0)
 {
 }
 
-Span::Span( const Span & src ): m_max(src.m_max), m_list(src.m_list)
+Span::Span( const Span & src ): _maxSize(src._maxSize), _list(src._list)
 {
 }
 
-Span::Span( unsigned int n): m_max(n)
+Span::Span( unsigned int n): _maxSize(n)
 {
 }
 
@@ -17,63 +17,65 @@ Span::~Span()
 {
 }
 
-Span &				Span::operator=( Span const & rhs )
-{
-	static_cast<void>(rhs);
-	return *this;
-}
-
-std::ostream &			operator<<( std::ostream & o, Span const & i )
-{
-	std::vector<int>	list = i.getList();
-
-	for (std::vector<int>::iterator it = list.begin(); it != list.end(); it++)
-	{
-		std::cout << *it;
-		if (it + 1 != list.end())
-			std::cout << " ; ";
-	}
-	return o;
-}
-
 void	Span::addNumber(int const nb)
 {
-	if (m_list.size() >= m_max)
-		throw SizeMaxReachedException();
-	m_list.push_back(nb);
+	if (_list.size() >= _maxSize)
+		throw ArrayIsFullException();
+	_list.push_back(nb);
 }
 
-unsigned int	Span::shortestSpan(void) const
+unsigned long	Span::shortestSpan(void) const
 {
-	if (!m_list.size())
-		throw NoNumberException();
-	else if (m_list.size() == 1)
-		throw LonelyNumberException();
-	std::vector<int>	list(m_list);
-	unsigned int		span = longestSpan();
-
+	unsigned long shortSpan;
+	std::vector<int>	list(_list);
+	if (!_list.size())
+		throw ArrayEmptyException();
+	else if (_list.size() == 1)
+		throw ArrayOneNumberException();
+	shortSpan = longestSpan();
 	std::sort(list.begin(), list.end());
 	for (std::vector<int>::iterator i = list.begin(); i < list.end() - 1; i++)
 	{
-		if (static_cast<unsigned int>(*(i + 1) - *i) < span)
-			span = *(i + 1) - *i;
+		if ((*(i + 1) - *i) < static_cast<int>(shortSpan))
+			shortSpan = *(i + 1) - *i;
 	}
-	return (span);
+	return (shortSpan);
 }
 
-unsigned int	Span::longestSpan(void) const
+unsigned long	Span::longestSpan(void) const
 {
-	if (!m_list.size())
-		throw NoNumberException();
-	else if (m_list.size() == 1)
-		throw LonelyNumberException();
-	std::vector<int>	list(m_list);
-
+	unsigned long longestSpan;
+	std::vector <int>list(_list);
+	if (!_list.size())
+		throw ArrayEmptyException();
+	else if (_list.size() == 1)
+		throw ArrayOneNumberException();
 	std::sort(list.begin(), list.end());
-	return (*(list.end() - 1) - *list.begin());
+	longestSpan = *(list.end() - 1) - *list.begin();
+	return longestSpan;
 }
 
 std::vector<int>	Span::getList(void) const
 {
-	return (m_list);
+	return (_list);
 }
+
+Span& Span::operator=( Span const & other )
+{
+	if (this == &other){}
+	return *this;
+}
+
+std::ostream &	operator<<( std::ostream & o, Span const & span )
+{
+	std::vector<int>	list = span.getList();
+
+	for (std::vector<int>::iterator it = list.begin(); it != list.end(); it++)
+	{	
+		o << " | " << *it;
+		if (it == list.end() - 1)
+			o << std::endl;
+	}
+	return o;
+}
+

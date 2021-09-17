@@ -1,35 +1,19 @@
-#ifndef EASYFIND_HPP
-#define EASYFIND_HPP
-
+#pragma once
 #include <algorithm>
-#include <vector>
-#include <deque>
-#include <list>
-#include <set>
-#include <queue>
-#include <map>
-#include <typeinfo>
 
-class WrongContainerException: public std::exception
+class ValueNotFoundException: public std::exception
 {
 	const char * what() const throw()
 	{
-		return ("Error: wrong container type");
+		return ("Error: value not found ..");
 	}
 };
 
-template<typename T> typename T::iterator	easyfind(T & container, int value)
+template<typename T>
+typename T::iterator	easyfind(T & container, int value)
 {
-	if (typeid(T) != typeid(std::vector<int>)
-		&& typeid(T) != typeid(std::deque<int>)
-		&& typeid(T) != typeid(std::list<int>)
-		&& typeid(T) != typeid(std::map<int, int>)
-		&& typeid(T) != typeid(std::queue<int>)
-		&& typeid(T) != typeid(std::set<int>))
-	{
-		throw WrongContainerException();
-	}
+	typename T::iterator i = std::find(container.begin(), container.end(), value);
+	if (i == container.end())
+		throw ValueNotFoundException();
 	return (std::find(container.begin(), container.end(), value));
 }
-
-#endif
