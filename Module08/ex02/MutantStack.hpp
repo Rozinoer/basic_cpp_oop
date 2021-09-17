@@ -1,23 +1,19 @@
-
-#ifndef MUTANSTACK_HPP
-# define MUTANSTACK_HPP
-
+#pragma once
 #include <stack>
 #include <deque>
 
-template<typename T, typename Container = std::deque<T> >
-class MutantStack : public std::stack<T, Container>
+template<typename T >
+class MutantStack : public std::stack<T>
 {
 	public:
 		MutantStack() {}
-		MutantStack(const MutantStack<T>& src)
+		MutantStack(const MutantStack<T>& other)
 		{
-			*this = src;
+			(std::stack<T>(other));
 		}
-		MutantStack<T> &	operator=(const MutantStack<T>& rhs) 
+		MutantStack<T> &	operator=(const MutantStack<T>& other) 
 		{
-			this->c = rhs.c;
-			return (*this);
+			std::stack<T>::operator=(other);
 		}
 		~MutantStack() {}
 
@@ -32,5 +28,3 @@ class MutantStack : public std::stack<T, Container>
 			return (this->c.end());
 		}
 };
-
-#endif 
